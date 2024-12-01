@@ -1,0 +1,94 @@
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+  <!-- Navbar -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+            <h6 class="text-white text-capitalize ps-3">Add Client</h6>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+
+          <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+            <div class="row p-4">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Name*</mat-label>
+                  <input matInput formControlName="name" required />
+                  <mat-error *ngIf="clientForm.get('name')?.hasError('required')">
+                    Name is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Email*</mat-label>
+                  <input matInput formControlName="email" required />
+                  <mat-error *ngIf="clientForm.get('email')?.hasError('required')">
+                    Email is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row p-4">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>MVP Points*</mat-label>
+                  <input matInput formControlName="mvp_points" required />
+                  <mat-error *ngIf="clientForm.get('mvp_points')?.hasError('required')">
+                    MVP Points are required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>New User Acquisition Fees*</mat-label>
+                  <input matInput formControlName="acquisition_fee" required />
+                  <mat-error *ngIf="clientForm.get('acquisition_fee')?.hasError('required')">
+                    Acquisition fees are required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div class="row p-4">
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Referred Bonus*</mat-label>
+                  <input matInput formControlName="referral_bonus" required />
+                  <mat-error *ngIf="clientForm.get('referral_bonus')?.hasError('required')">
+                    Referred Bonus is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <mat-form-field appearance="outline">
+                  <mat-label>Community Cashback*</mat-label>
+                  <input matInput formControlName="community_cashback" required />
+                  <mat-error *ngIf="clientForm.get('community_cashback')?.hasError('required')">
+                    Community Cashback is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            </div>
+
+            <div style="text-align: center;">
+              <button mat-raised-button color="primary" type="submit" [disabled]="clientForm.invalid">
+                Add Client
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3 date-panel margin-5">
+    <div class="container-fluid">
+
+    </div>
+  </div>
+  <!-- End Navbar -->
+
+</main>

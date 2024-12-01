@@ -1,0 +1,50 @@
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+  <!-- Navbar -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+            <h6 class="text-white text-capitalize ps-3">File Upload</h6>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+
+          <div class="row p-4">
+              <div class="row">
+                  <div class="col-md-12">
+                      <div id="file-upload-div" class="uploader">
+                          <input id="file-upload" type="file" name="fileUpload" (change)="onFileSelected($event)"
+                          accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+
+                          <label for="file-upload" id="file-drag">
+                              <img id="file-image" src="#" alt="Preview" class="hidden">
+                              <div id="start">
+                                  <i class="fa fa-download" aria-hidden="true"></i>
+                                  <div>Select a file or drag here</div>
+                                  <div id="notimage" class="hidden">Please select an image</div>
+                                  <!-- <div class="col-black">{{fileName}}</div> -->
+                                  <span id="file-upload-btn" class="btn bg-gradient-primary mt-3">Select a file</span>
+                              </div>
+
+                          </label>
+                      </div>
+
+              </div>
+
+
+          </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3 date-panel margin-5">
+    <div class="container-fluid">
+
+    </div>
+  </div>
+
+</main>

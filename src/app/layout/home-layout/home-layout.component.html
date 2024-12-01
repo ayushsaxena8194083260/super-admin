@@ -1,0 +1,111 @@
+<!-- The content below is only a placeholder and can be replaced.
+<div class="wrapper default-theme">
+  <main>
+    <app-sidenav></app-sidenav>
+    <app-navbar></app-navbar>
+    <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4">
+      <router-outlet></router-outlet>
+      <hr />
+
+    </div>
+
+  </main>
+</div> -->
+
+<mat-toolbar color="primary mb-4">
+  <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="spacer"></span>
+  <span class="justify-content-end mr-2">{{ userName }} </span>
+  <mat-icon class="ml-2">account_circle</mat-icon>
+
+  <button mat-button (click)="logout()" class="logout-button">
+    <mat-icon>logout</mat-icon> Logout
+  </button>
+</mat-toolbar>
+<mat-sidenav-container autosize>
+  <mat-sidenav
+    [ngClass]="!isCollapsed ? '' : 'expanded'"
+    [mode]="isMobile ? 'over' : 'side'"
+    [opened]="isMobile ? 'false' : 'true'"
+  >
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active">
+        <span class="entry">
+          <i class="material-icons opacity-10">dashboard</i>
+          <span class="label" *ngIf="!isCollapsed">Dashboard</span>
+        </span>
+      </a>
+    </mat-nav-list>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/billing" routerLinkActive="active">
+        <span class="entry">
+          <i class="material-icons opacity-10">receipt_long</i>
+          <span class="label" *ngIf="!isCollapsed">Billing</span>
+        </span>
+      </a>
+    </mat-nav-list>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/transaction" routerLinkActive="active">
+        <span class="entry">
+          <i class="material-icons opacity-10">money</i>
+          <span class="label" *ngIf="!isCollapsed">Transaction</span>
+        </span>
+      </a>
+    </mat-nav-list>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/referals" routerLinkActive="active">
+        <span class="entry">
+          <i class="material-icons opacity-10">format_textdirection_r_to_l</i>
+          <span class="label" *ngIf="!isCollapsed">Referals</span>
+        </span>
+      </a>
+    </mat-nav-list>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/products" routerLinkActive="active">
+        <span class="entry">
+          <i class="material-icons opacity-10">production_quantity_limits</i>
+          <span class="label" *ngIf="!isCollapsed">Products</span>
+        </span>
+      </a>
+    </mat-nav-list>
+
+    <!-- <mat-nav-list>
+      <a mat-list-item routerLink="/file-upload" routerLinkActive="active">
+        <span class="entry">
+          <i class="material-icons opacity-10">upload</i>
+          <span class="label" *ngIf="!isCollapsed">Upload</span>
+        </span>
+      </a>
+    </mat-nav-list> -->
+
+    <h6
+      class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8"
+    >
+      Accounts
+    </h6>
+
+    <mat-nav-list>
+      <a mat-list-item routerLink="/clients" routerLinkActive="active">
+        <span class="entry">
+          <i class="material-icons opacity-10">person</i>
+          <span class="label" *ngIf="!isCollapsed">Clients</span>
+        </span>
+      </a>
+    </mat-nav-list>
+
+    <div class="logout-sidebar">
+      <button mat-button (click)="logout()" class="logout-button">
+        <mat-icon class="logout">logout</mat-icon> Logout
+      </button>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

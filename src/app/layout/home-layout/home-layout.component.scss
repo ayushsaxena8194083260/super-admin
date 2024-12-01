@@ -1,0 +1,167 @@
+h1 {
+  padding: 0 1rem;
+}
+
+h2 {
+  padding: 1rem;
+}
+
+mat-toolbar {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+// Move the content down so that it won't be hidden by the toolbar
+mat-sidenav {
+  padding-top: 3.5rem;
+
+  @media screen and (min-width: 600px) {
+    padding-top: 4rem;
+  }
+
+  .entry {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+  }
+}
+
+// Move the content down so that it won't be hidden by the toolbar
+mat-sidenav-content {
+  padding-top: 3.5rem;
+  margin-left: 101px;
+  margin-top: 14px;
+
+  @media screen and (min-width: 600px) {
+    padding-top: 4rem;
+  }
+}
+
+.expanded {
+  width: 120px !important;
+}
+
+mat-sidenav {
+  max-width: 200px !important;
+  background: linear-gradient(195deg, #42424a, #191919) !important;
+  color: white;
+}
+
+.mat-list-item {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #333;
+  /* Text color */
+  padding: 12px 16px;
+  transition: background-color 0.3s ease;
+}
+
+.mat-list-item:hover {
+  background-color: rgba(0, 0, 0, 0.08);
+  /* Hover effect */
+}
+
+/* Icon styling inside mat-list-item */
+.material-icons {
+  color: white;
+  /* Icon color (adjust to your theme) */
+  font-size: 24px;
+  margin-right: 8px;
+  /* Spacing between icon and text */
+}
+
+/* Adjust text alignment within the mat-list-item */
+.entry {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Responsive styling to adjust for collapsed state */
+.expanded .entry span {
+  display: none;
+}
+
+.label {
+  color: white;
+}
+
+/* CSS to Align Logout Button in Topbar */
+.spacer {
+  flex: 1 1 auto;
+}
+
+.logout-button {
+  color: white;
+  font-weight: bold;
+}
+
+/* Sidebar Logout Button Styling */
+.logout-sidebar {
+  position: absolute;
+  bottom: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logout-sidebar button {
+  width: 90%;
+  text-align: left;
+  font-weight: bold;
+}
+
+mat-icon {
+  color: black !important;
+}
+
+.logout {
+  color: white !important;
+}
+
+/* Highlight active sidebar item with a blue background and text color */
+.mat-mdc-list-item.active {
+  background: linear-gradient(195deg, #93A5CF 0%, #537895 100%) !important;
+  /* Material blue */
+  color: white;
+  border-radius: 4px;
+}
+
+.mat-mdc-list-item:hover {
+  background: linear-gradient(195deg, #93A5CF 0%, #537895 100%) !important;
+  /* Material blue */
+  color: white;
+  border-radius: 4px;
+}
+
+/* Ensure icons inside active items also change color */
+mat-list-item.active i,
+mat-list-item.active .label {
+  color: white;
+}
+
+/* Adjust padding for better appearance */
+mat-list-item.active .entry {
+  padding: 8px 16px;
+}
+
+/* Add margin around sidebar logout button */
+.logout-sidebar {
+  position: absolute;
+  bottom: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.logout-sidebar button {
+  width: 90%;
+  text-align: left;
+  font-weight: bold;
+}

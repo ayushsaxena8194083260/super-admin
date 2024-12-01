@@ -1,0 +1,114 @@
+<main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+  <!-- Navbar -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+            <h6 class="text-white text-capitalize ps-3">Search Criteria</h6>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+
+          <div class="row p-4">
+            <div class="col-xs-6 col-sm-7 col-md-7 col-lg-7">
+              <div class="input-group input-group-static mb-4">
+                <label for="lname">Search Here:-</label>
+                <input
+                  class="form-control navbar-search"
+                  type="text"
+                  placeholder="Search........"
+                  [(ngModel)]="inputValue"
+                />
+              </div>
+            </div>
+
+            <div class="col-xs-3 col-sm-1 col-md-1 col-lg-1">
+              <div class="">
+                <button type="button" class="btn bg-gradient-primary mt-3"  (click)="applyFilter()">Search</button>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3 date-panel margin-5">
+    <div class="container-fluid">
+
+    </div>
+  </div>
+  <!-- End Navbar -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3">Referals List</h6>
+            </div>
+          </div>
+          <div class="card-body px-0 pb-2">
+            <div class="mat-elevation-z8 mb-5">
+              <table mat-table [dataSource]="dataSource" matSort>
+                <!-- Position Column -->
+                <ng-container matColumnDef="parent_id">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Parent ID</th>
+                  <td mat-cell *matCellDef="let element">{{ element.parent_id }}</td>
+                </ng-container>
+
+                <!-- Name Column -->
+                <ng-container matColumnDef="Name">
+                  <th mat-header-cell *matHeaderCellDef>Name</th>
+                  <td mat-cell *matCellDef="let element">{{ element.Name }}</td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="phone_number">
+                  <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+                  <td mat-cell *matCellDef="let element">{{ element.phone_number }}</td>
+                </ng-container>
+
+                <!-- Symbol Column -->
+                <ng-container matColumnDef="email_id">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+                  <td mat-cell *matCellDef="let element">{{ element.email_id }}</td>
+                </ng-container>
+                <ng-container matColumnDef="date_of_referal">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Date of Referal</th>
+                  <td mat-cell *matCellDef="let element">{{ element.date_of_referal | date:'fullDate' }}</td>
+                </ng-container>
+                <ng-container matColumnDef="margin">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Margin</th>
+                  <td mat-cell *matCellDef="let element">{{ element.margin }}</td>
+                </ng-container>
+                <ng-container matColumnDef="mvp_points">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>MVP Points</th>
+                  <td mat-cell *matCellDef="let element">{{ element.mvp_points }}</td>
+                </ng-container>
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+                  <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+                </ng-container>
+                <ng-container matColumnDef="date_of_mvp">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header>Date of Mvp</th>
+                  <td mat-cell *matCellDef="let element">{{ element.date_of_mvp }}</td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+              </table>
+            </div>
+            <mat-paginator [pageSize]="itemsPerPage" *ngIf="this.totalItems > this.itemsPerPage"
+              [pageSizeOptions]="[5, 10, 25, 100]" [length]="totalItems" setPageSize (page)="onPageChange($event)"
+              aria-label="Select page">
+            </mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+ <app-footer></app-footer>
+  </div>
+</main>

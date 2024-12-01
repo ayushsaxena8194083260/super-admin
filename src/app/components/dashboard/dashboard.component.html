@@ -1,0 +1,149 @@
+<main
+  class="main-content position-relative max-height-vh-100 h-100 border-radius-lg"
+>
+  <!-- Navbar -->
+<div class="row">
+  <div class="col-md-10"></div>
+  <div class="col-md-2">
+    <form [formGroup]="dashboardForm" >
+      <select
+    id="clientSelect"
+    formControlName="client"
+    required
+    (change)="onClientChange($event)"
+  >
+    <option *ngFor="let client of clients" [value]="client.client_id">
+      {{ client.name }}
+    </option>
+  </select>
+    </form>
+  </div>
+</div>
+  <!-- End Navbar -->
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute"
+            >
+              <i class="material-icons opacity-10">currency_rupee</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Sale</p>
+              <h4 class="mb-0">{{ this.totalSale }}</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0" />
+          <div class="card-footer p-3"></div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-primary shadow-primary text-center border-radius-xl mt-n4 position-absolute"
+            >
+              <i class="material-icons opacity-10">shopping_cart</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Total Orders</p>
+              <h4 class="mb-0">{{ this.totalOrders }}</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0" />
+          <div class="card-footer p-3"></div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute"
+            >
+              <i class="material-icons opacity-10">group</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize">Active Referral Users</p>
+              <h4 class="mb-0">{{ this.activeReferralUsers }}</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0" />
+          <div class="card-footer p-3"></div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-sm-6">
+        <div class="card">
+          <div class="card-header p-3 pt-2">
+            <div
+              class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute"
+            >
+              <i class="material-icons opacity-10">emoji_events</i>
+            </div>
+            <div class="text-end pt-1">
+              <p class="text-sm mb-0 text-capitalize ml-60">
+                Average User Reward Points Allocated
+              </p>
+              <h4 class="mb-0">{{ this.averageUserRewardPointsAllocated }}</h4>
+            </div>
+          </div>
+          <hr class="dark horizontal my-0" />
+          <div class="card-footer p-3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-lg-6 col-md-6 mt-4 mb-4">
+        <div class="card z-index-2">
+          <div
+            class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent"
+          >
+            <div class="border-radius-lg py-3 pe-1">
+              <div class="">
+                <canvas
+                  #lineChart
+                  baseChart
+                  [data]="ChartData"
+                  [options]="lineChartOptions"
+                  [legend]="lineChartLegend"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0">Sales Views</h6>
+            <p class="text-sm">Last Sales Performance</p>
+            <hr class="dark horizontal" />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 mt-4 mb-4">
+        <div class="card z-index-2">
+          <div
+            class="card-header p-0 position-relative mt-n4 mx-3 z-index-2 bg-transparent"
+          >
+            <div class="border-radius-lg py-3 pe-1">
+              <div class="chart">
+                <canvas
+                  #barChart
+                  baseChart
+                  [data]="baChartData"
+                  [options]="lineChartOptions"
+                  [legend]="lineChartLegend"
+                ></canvas>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <h6 class="mb-0">Daily Sales</h6>
+            <p class="text-sm">Transactions</p>
+            <hr class="dark horizontal" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</main>
