@@ -15,7 +15,11 @@ mat-toolbar {
 mat-sidenav-container {
   height: 100%;
 }
-
+img{
+  height: 30px;
+  width: 7%;
+  margin: 10px 0px 9px 10px;
+}
 // Move the content down so that it won't be hidden by the toolbar
 mat-sidenav {
   padding-top: 3.5rem;

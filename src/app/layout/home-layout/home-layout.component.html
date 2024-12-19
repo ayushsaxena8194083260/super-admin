@@ -16,6 +16,11 @@
   <button mat-icon-button aria-label="Menu icon" (click)="toggleMenu()">
     <mat-icon>menu</mat-icon>
   </button>
+  <img
+  src="../assets/images/cropped-cropped-Shareakart-Logo-1-300x73.png"
+  alt="illustration"
+  class="logo"
+/>
   <span class="spacer"></span>
   <span class="justify-content-end mr-2">{{ userName }} </span>
   <mat-icon class="ml-2">account_circle</mat-icon>
@@ -94,7 +99,7 @@
       <a mat-list-item routerLink="/clients" routerLinkActive="active">
         <span class="entry">
           <i class="material-icons opacity-10">person</i>
-          <span class="label" *ngIf="!isCollapsed">Clients</span>
+          <span class="label" *ngIf="!isCollapsed">Users</span>
         </span>
       </a>
     </mat-nav-list>
